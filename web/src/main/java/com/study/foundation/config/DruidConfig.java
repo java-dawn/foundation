@@ -1,6 +1,7 @@
 package com.study.foundation.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import com.github.pagehelper.PageInterceptor;
 import org.apache.ibatis.plugin.Interceptor;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -17,14 +18,19 @@ import javax.sql.DataSource;
  * @date 2019/4/28
  */
 @Configuration
-@MapperScan("com.study.foundation.dao.mapper")
 public class DruidConfig {
 
-    @Bean(name = "dataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.druid")
     @Primary
-    public DataSource dataSource() {
-        return new DruidDataSource();
+    @Bean(name = "oneDataSource")
+    @ConfigurationProperties("spring.datasource.druid.one")
+    public DataSource dataSourceOne(){
+        return DruidDataSourceBuilder.create().build();
+    }
+
+    @Bean(name = "twoDataSource")
+    @ConfigurationProperties("spring.datasource.druid.two")
+    public DataSource dataSourceTwo(){
+        return DruidDataSourceBuilder.create().build();
     }
 
 }

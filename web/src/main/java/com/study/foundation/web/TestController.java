@@ -1,8 +1,6 @@
 package com.study.foundation.web;
 
-import com.study.foundation.dao.mapper.MythOrderServiceMapper;
-import com.study.foundation.dao.model.MythOrderServiceExample;
-import com.study.foundation.dao.service.TestService;
+import com.study.foundation.dao1.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

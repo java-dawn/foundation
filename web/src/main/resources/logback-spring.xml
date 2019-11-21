@@ -86,8 +86,8 @@
     <!--测试环境:打印控制台和输出到文件-->
     <springProfile name="test">
         <!-- 打印sql -->
-        <logger name="com.study.foundation.dao.model" level="DEBUG"/>
-        <logger name="com.study.foundation.dao.mapper" level="DEBUG"/>
+        <logger name="com.study.foundation.dao1.model" level="DEBUG"/>
+        <logger name="com.study.foundation.dao1.mapper" level="DEBUG"/>
         <root level="info">
             <appender-ref ref="asyncFileAppender"/>
             <appender-ref ref="asyncErrorAppender"/>

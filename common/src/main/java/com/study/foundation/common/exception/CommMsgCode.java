@@ -3,7 +3,7 @@ package com.study.foundation.common.exception;
 /**
  * 通用错误码定义
  *
- * @author bjf
+ * @author ybl
  * @date 2017/11/27
  */
 public enum CommMsgCode implements MsgCode {

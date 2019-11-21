@@ -17,19 +17,19 @@
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.study.foundation.dao.model"
+        <javaModelGenerator targetPackage="com.study.foundation.dao1.model"
                             targetProject="dao/src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.study.foundation.dao.mapper"
+        <sqlMapGenerator targetPackage="com.study.foundation.dao1.mapper"
                          targetProject="dao/src/main/resources/mapper">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.study.foundation.dao.mapper"
+                             targetPackage="com.study.foundation.dao1.mapper"
                              targetProject="dao/src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
