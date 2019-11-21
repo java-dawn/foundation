@@ -1,6 +1,6 @@
 package com.study.foundation.web;
 
-import com.study.foundation.dao1.service.TestService;
+import com.study.foundation.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

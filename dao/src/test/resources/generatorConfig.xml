@@ -10,31 +10,32 @@
         <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />-->
         <!--<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" />-->
 
-        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://10.53.156.240:3306/test?tinyInt1isBit=false&amp;useUnicode=true&amp;characterEncoding=utf-8"
-                        userId="dev"
-                        password="wdphdev2018">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.14.211:3306/demo_ds_0?characterEncoding=UTF-8"
+                        userId="rw"
+                        password="zlsdRW@2019">
             <property name="useInformationSchema" value="true"/>
         </jdbcConnection>
 
-        <javaModelGenerator targetPackage="com.study.foundation.dao1.model"
+        <javaModelGenerator targetPackage="com.study.foundation.dao.model"
                             targetProject="dao/src/main/java">
             <property name="enableSubPackages" value="true" />
             <property name="trimStrings" value="true" />
         </javaModelGenerator>
 
-        <sqlMapGenerator targetPackage="com.study.foundation.dao1.mapper"
-                         targetProject="dao/src/main/resources/mapper">
+        <sqlMapGenerator targetPackage="mybatis.mapper"
+                         targetProject="dao/src/main/resources">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
         <javaClientGenerator type="XMLMAPPER"
-                             targetPackage="com.study.foundation.dao1.mapper"
+                             targetPackage="com.study.foundation.dao.mapper"
                              targetProject="dao/src/main/java">
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="myth_order_service">
-        </table>
+        <table tableName="t_order" domainObjectName="Order"></table>
+        <table tableName="t_order_item" domainObjectName="OrderItem"></table>
+
     </context>
 </generatorConfiguration>

@@ -1,4 +1,4 @@
-package com.study.foundation.dao1.service;
+package com.study.foundation.service;
 
 import org.mybatis.generator.api.MyBatisGenerator;
 import org.mybatis.generator.config.Configuration;
