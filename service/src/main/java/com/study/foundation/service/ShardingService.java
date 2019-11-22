@@ -39,7 +39,7 @@ public class ShardingService {
     public Long add() {
         for (int i = 0; i < 100; i++) {
             Order order = new Order();
-            Long orderId = Long.parseLong(i + "");
+            Long orderId = Long.parseLong(i + 1 + "");
             order.setOrderId(orderId);
             order.setAddressId(1L);
             order.setUserId(1);
