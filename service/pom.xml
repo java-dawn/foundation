@@ -20,6 +20,11 @@
 			<version>${parent.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>com.zhilingsd</groupId>
+			<artifactId>zlsd-base-snowflake</artifactId>
+		</dependency>
+
 	</dependencies>
 
 </project>

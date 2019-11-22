@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -28,7 +29,6 @@ import static com.study.foundation.common.exception.CommMsgCode.NOT_FOUND;
 import static com.study.foundation.common.exception.CommMsgCode.NOT_SUPPORTED;
 import static com.study.foundation.common.exception.CommMsgCode.PARAM_ERROR;
 import static com.study.foundation.common.exception.CommMsgCode.SERVER_ERROR;
-import static org.apache.logging.log4j.util.Strings.isNotBlank;
 
 /**
  * 全局异常处理
@@ -90,7 +90,7 @@ public class ExceptionAdvice {
     }
 
     private ErrorResp createErrorResp(MsgCode msgCode, String message) {
-        return new ErrorResp(msgCode.getCode(), isNotBlank(message) ? message : msgCode.getMessage());
+        return new ErrorResp(msgCode.getCode(), StringUtils.isEmpty(message) ? message : msgCode.getMessage());
     }
 
     private void createLog(Exception e, String uri, String params) {

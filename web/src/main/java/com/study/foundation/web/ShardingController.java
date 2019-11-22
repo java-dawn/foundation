@@ -1,6 +1,6 @@
 package com.study.foundation.web;
 
-import com.study.foundation.service.TestService;
+import com.study.foundation.service.ShardingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,18 +10,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/4/29
  */
 @RestController
-public class TestController {
+public class ShardingController {
 
     @Autowired
-    private TestService testService;
+    private ShardingService shardingService;
 
-    @RequestMapping("/test")
-    public Long test() {
-        return testService.test();
+    @RequestMapping("/query")
+    public Long query() {
+        return shardingService.query();
     }
 
-    @RequestMapping("/testStr")
-    public String testStr() {
-        return "1123";
+    @RequestMapping("/add")
+    public Long add() {
+        return shardingService.add();
     }
+
 }

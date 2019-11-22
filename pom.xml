@@ -20,7 +20,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<parent.version>0.0.1-SNAPSHOT</parent.version>
-		<springboot.version>2.1.4.RELEASE</springboot.version>
+		<springboot.version>1.5.7.RELEASE</springboot.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<shardingsphere.version>4.0.0-RC2</shardingsphere.version>
     </properties>
@@ -53,8 +53,8 @@
 			<!-- 连接池DRUID -->
 			<dependency>
 				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.1.10</version>
+				<artifactId>druid</artifactId>
+				<version>1.1.17</version>
 			</dependency>
 
 			<!-- mybatis -->
@@ -83,10 +83,18 @@
 				<version>1.2.37</version>
 			</dependency>
 
+			<!-- sharding -->
 			<dependency>
 				<groupId>org.apache.shardingsphere</groupId>
 				<artifactId>sharding-jdbc-spring-boot-starter</artifactId>
 				<version>${shardingsphere.version}</version>
+			</dependency>
+
+			<!-- 雪花ID -->
+			<dependency>
+				<groupId>com.zhilingsd</groupId>
+				<artifactId>zlsd-base-snowflake</artifactId>
+				<version>1.5.0</version>
 			</dependency>
 
         </dependencies>
