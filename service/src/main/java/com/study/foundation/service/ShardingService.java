@@ -1,8 +1,10 @@
 package com.study.foundation.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.study.foundation.dao.mapper.AllMapper;
 import com.study.foundation.dao.mapper.OrderItemMapper;
 import com.study.foundation.dao.mapper.OrderMapper;
+import com.study.foundation.dao.model.All;
 import com.study.foundation.dao.model.Order;
 import com.study.foundation.dao.model.OrderItem;
 import com.zhilingsd.base.snowflake.client.SnowFlakeSerial;
@@ -23,6 +25,9 @@ public class ShardingService {
 
     @Autowired
     private OrderItemMapper orderItemMapper;
+
+    @Autowired
+    private AllMapper allMapper;
 
     @Autowired
     private SnowFlakeSerial snowFlakeSerial;
@@ -60,6 +65,14 @@ public class ShardingService {
             orderItemMapper.insert(orderItem2);
         }
 
+
+        for (int i = 0; i < 3; i++) {
+            All all = new All();
+            all.setId(i);
+            all.setName(i * i + "");
+
+            allMapper.insert(all);
+        }
         return 0L;
     }
 }
