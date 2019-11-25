@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 /**
  * @author yuboliang
@@ -84,11 +85,12 @@ public class ShardingService {
 
 
     public Long addTimeSharding() throws InterruptedException {
-        for (int i = 0; i < 200; i++) {
+        for (int i = 0; i < 10; i++) {
             TimeSharding timeSharding = new TimeSharding();
             timeSharding.setId(i);
+            timeSharding.setCreateTime(new Date());
 
-            Thread.sleep(10);
+            Thread.sleep(1000);
 
             timeShardingMapper.insert(timeSharding);
         }
