@@ -25,9 +25,19 @@ public class ShardingController {
         return shardingService.add();
     }
 
+    @RequestMapping("/addAll")
+    public void addAllTable() throws InterruptedException {
+        shardingService.addAllTable();
+    }
+
     @RequestMapping("/addTimeSharding")
     public Long addTimeSharding() throws InterruptedException {
         return shardingService.addTimeSharding();
+    }
+
+    @RequestMapping("/addNormal")
+    public void addNormal() throws InterruptedException {
+        shardingService.addNormal();
     }
 
 }

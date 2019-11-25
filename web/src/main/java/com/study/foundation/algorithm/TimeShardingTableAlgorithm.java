@@ -12,8 +12,8 @@ public final class TimeShardingTableAlgorithm implements PreciseShardingAlgorith
     
     @Override
     public String doSharding(final Collection<String> tableNames, final PreciseShardingValue<Date> shardingValue) {
-        String dateStr = "2019-11-25 10:34:00";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("YYYY-MM-DD HH:mm:ss");
+        String dateStr = "2019-11-25 11:53:00";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             Date date = simpleDateFormat.parse(dateStr);
             Date createTime = shardingValue.getValue();

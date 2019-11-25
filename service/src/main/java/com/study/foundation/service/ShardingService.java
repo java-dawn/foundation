@@ -1,14 +1,8 @@
 package com.study.foundation.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.study.foundation.dao.mapper.AllMapper;
-import com.study.foundation.dao.mapper.OrderItemMapper;
-import com.study.foundation.dao.mapper.OrderMapper;
-import com.study.foundation.dao.mapper.TimeShardingMapper;
-import com.study.foundation.dao.model.All;
-import com.study.foundation.dao.model.Order;
-import com.study.foundation.dao.model.OrderItem;
-import com.study.foundation.dao.model.TimeSharding;
+import com.study.foundation.dao.mapper.*;
+import com.study.foundation.dao.model.*;
 import com.zhilingsd.base.snowflake.client.SnowFlakeSerial;
 import com.zhilingsd.base.snowflake.common.SnowFlakeEntityEnum;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +30,9 @@ public class ShardingService {
 
     @Autowired
     private TimeShardingMapper timeShardingMapper;
+
+    @Autowired
+    private NormalTableMapper normalTableMapper;
 
     @Autowired
     private SnowFlakeSerial snowFlakeSerial;
@@ -72,7 +69,10 @@ public class ShardingService {
             orderItemMapper.insert(orderItem2);
         }
 
+        return 0L;
+    }
 
+    public void addAllTable() {
         for (int i = 0; i < 3; i++) {
             All all = new All();
             all.setId(i);
@@ -80,12 +80,11 @@ public class ShardingService {
 
             allMapper.insert(all);
         }
-        return 0L;
     }
 
 
     public Long addTimeSharding() throws InterruptedException {
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 100; i++) {
             TimeSharding timeSharding = new TimeSharding();
             timeSharding.setId(i);
             timeSharding.setCreateTime(new Date());
@@ -96,5 +95,14 @@ public class ShardingService {
         }
 
         return 0L;
+    }
+
+    public void addNormal() {
+        for (int i = 0; i < 10; i++) {
+            NormalTable normalTable = new NormalTable();
+            normalTable.setName(i * i + "");
+
+            normalTableMapper.insert(normalTable);
+        }
     }
 }
