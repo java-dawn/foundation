@@ -29,7 +29,6 @@ public final class TimeShardingTableAlgorithm implements PreciseShardingAlgorith
             e.printStackTrace();
         }
 
-
-        throw new UnsupportedOperationException();
+        return null;
     }
 }

@@ -1,6 +1,7 @@
 package com.study.foundation.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.google.common.collect.Lists;
 import com.study.foundation.dao.mapper.*;
 import com.study.foundation.dao.model.*;
 import com.zhilingsd.base.snowflake.client.SnowFlakeSerial;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -38,10 +40,17 @@ public class ShardingService {
     private SnowFlakeSerial snowFlakeSerial;
 
     public Long query() {
-        for (int i = 0; i < 10; i++) {
-            Order orders = orderMapper.selectByPrimaryKey(Long.parseLong(i + ""));
-            log.info(JSONObject.toJSONString(orders));
-        }
+//        for (int i = 0; i < 10; i++) {
+//            Order orders = orderMapper.selectByPrimaryKey(Long.parseLong(i + ""));
+//        }
+
+        ArrayList<Long> objects = new ArrayList<>();
+        objects.add(3L);
+        objects.add(4L);
+        objects.add(1L);
+        OrderExample orderExample = new OrderExample();
+        orderExample.createCriteria().andOrderIdIn(objects);
+        orderMapper.selectByExample(orderExample);
 
         return 0L;
     }

@@ -14,6 +14,6 @@ public final class OrderShardingTableAlgorithm implements PreciseShardingAlgorit
                 return each;
             }
         }
-        throw new UnsupportedOperationException();
+        return null;
     }
 }
