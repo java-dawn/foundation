@@ -1,116 +1,108 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.study</groupId>
-	<artifactId>fundation-parent</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>fundation</name>
+    <groupId>com.springboot.general</groupId>
+    <artifactId>springboot-general</artifactId>
     <packaging>pom</packaging>
-    <description>fundation-framework</description>
-
+    <version>1.0-SNAPSHOT</version>
     <modules>
-		<module>common</module>
-		<module>dao</module>
-		<module>service</module>
-		<module>web</module>
-	</modules>
+        <module>general-api</module>
+        <module>general-biz</module>
+        <module>general-dal</module>
+        <module>general-rpc</module>
+        <module>general-common</module>
+    </modules>
 
-	<properties>
-		<java.version>1.8</java.version>
-		<parent.version>0.0.1-SNAPSHOT</parent.version>
-		<springboot.version>2.1.4.RELEASE</springboot.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
+        <springboot.version>2.2.8.RELEASE</springboot.version>
+        <lombok.version>1.18.6</lombok.version>
+        <mysql.version>8.0.15</mysql.version>
+        <druid.version>1.1.10</druid.version>
+        <mybatis-puls.version>3.3.2</mybatis-puls.version>
+        <hutool.version>5.3.10</hutool.version>
     </properties>
+
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
-                <groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-                <version>${springboot.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
+                <groupId>com.springboot.general</groupId>
+                <artifactId>general-api</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.springboot.general</groupId>
+                <artifactId>general-biz</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.springboot.general</groupId>
+                <artifactId>general-dal</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.springboot.general</groupId>
+                <artifactId>general-rpc</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.springboot.general</groupId>
+                <artifactId>general-common</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
-			<!-- lombok -->
-			<dependency>
-				<groupId>org.projectlombok</groupId>
-				<artifactId>lombok</artifactId>
-				<version>1.18.6</version>
-			</dependency>
+            <!-- springboot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${springboot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
-			<!-- mysql连接 -->
-			<dependency>
-				<groupId>mysql</groupId>
-				<artifactId>mysql-connector-java</artifactId>
-				<version>8.0.15</version>
-			</dependency>
+            <!-- lombok -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>compile</scope>
+            </dependency>
 
-			<!-- 连接池DRUID -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>druid-spring-boot-starter</artifactId>
-				<version>1.1.10</version>
-			</dependency>
+            <!-- mysql连接 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
 
-			<!-- mybatis -->
-			<dependency>
-				<groupId>org.mybatis.spring.boot</groupId>
-				<artifactId>mybatis-spring-boot-starter</artifactId>
-				<version>2.0.0</version>
-			</dependency>
-			<!-- mybatis分页插件 -->
-			<dependency>
-				<groupId>com.github.pagehelper</groupId>
-				<artifactId>pagehelper-spring-boot-starter</artifactId>
-				<version>1.2.10</version>
-			</dependency>
-			<!-- mybatis自动生成插件 -->
-			<dependency>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-core</artifactId>
-				<version>1.3.5</version>
-			</dependency>
+            <!-- 连接池DRUID -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
 
-			<!-- fastjson -->
-			<dependency>
-				<groupId>com.alibaba</groupId>
-				<artifactId>fastjson</artifactId>
-				<version>1.2.37</version>
-			</dependency>
+            <!-- mybatis-plus -->
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-puls.version}</version>
+            </dependency>
+
+            <!-- hutool -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-core</artifactId>
+                <version>5.3.10</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>
-
-
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-compiler-plugin</artifactId>
-					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
-					</configuration>
-				</plugin>
-				<!-- spring boot fat jar-->
-				<plugin>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-maven-plugin</artifactId>
-					<executions>
-						<execution>
-							<goals>
-								<goal>repackage</goal>
-							</goals>
-						</execution>
-					</executions>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 
 </project>
